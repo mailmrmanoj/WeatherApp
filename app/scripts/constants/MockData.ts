@@ -1,28 +1,7 @@
-var AngularWeatherApp;
-(function (AngularWeatherApp) {
-    var AngularWeatherConstants = (function () {
-        function AngularWeatherConstants() {
-        }
-        AngularWeatherConstants.MODULE = "angular.weatherApp";
-        AngularWeatherConstants.CONTROLLERS = "angular.weatherApp.controllers";
-        AngularWeatherConstants.SERVICES = "angular.weatherApp.services";
-        AngularWeatherConstants.FACTORIES = "angular.weatherApp.factories";
-        AngularWeatherConstants.INTERCEPTORS = "angular.weatherApp.interceptors";
-        AngularWeatherConstants.FILTERS = "angular.weatherApp.filters";
-        AngularWeatherConstants.CONFIG_JSON_FILE_PATH = "scripts/config.json";
-        AngularWeatherConstants.CONFIG_CONSTANT = "configConstant";
-        AngularWeatherConstants.apiKey = "279b4be6d54c8bf6ea9b12275a567156";
-        AngularWeatherConstants.serverUrl = "http://api.openweathermap.org/data/2.5/";
-        return AngularWeatherConstants;
-    })();
-    AngularWeatherApp.AngularWeatherConstants = AngularWeatherConstants;
-})(AngularWeatherApp || (AngularWeatherApp = {}));
-var AngularWeatherApp;
-(function (AngularWeatherApp) {
-    var MockData = (function () {
-        function MockData() {
-        }
-        MockData.MOCK_WEATHER_DATA = {
+///<reference path="Reference.ts"/>
+module AngularWeatherApp {
+    export class MockData {
+        static MOCK_WEATHER_DATA = {
             "city": {
                 "id": 5391959,
                 "name": "San Francisco",
@@ -206,93 +185,6 @@ var AngularWeatherApp;
                     "clouds": 6
                 }
             ]
-        };
-        return MockData;
-    })();
-    AngularWeatherApp.MockData = MockData;
-})(AngularWeatherApp || (AngularWeatherApp = {}));
-var AngularWeatherApp;
-(function (AngularWeatherApp) {
-    var Router = (function () {
-        function Router() {
         }
-        Router.prototype.initialize = function ($stateProvider, $urlRouteProvider) {
-            $urlRouteProvider.otherwise("/test");
-            $stateProvider
-                .state('test', {
-                "url": "/test",
-                templateUrl: 'views/default.html',
-                controller: 'TestController'
-            });
-        };
-        return Router;
-    })();
-    AngularWeatherApp.Router = Router;
-})(AngularWeatherApp || (AngularWeatherApp = {}));
-var AngularWeatherApp;
-(function (AngularWeatherApp) {
-    var Bootstrapper = (function () {
-        function Bootstrapper(module, router) {
-            this.module = module;
-            this.router = router;
-        }
-        Bootstrapper.prototype.bootstrap = function () {
-            var _this = this;
-            this.module.config(["RestangularProvider", "$stateProvider", "$urlRouterProvider", "$httpProvider", function (RestangularProvider, $stateProvider, $urlRouterProvider, $httpProvider) {
-                    return _this.initializeConfig(RestangularProvider, $stateProvider, $urlRouterProvider, $httpProvider);
-                }]);
-        };
-        Bootstrapper.prototype.initializeConfig = function (RestangularProvider, $stateProvider, $urlRouterProvider, $httpProvider) {
-            this.router.initialize($stateProvider, $urlRouterProvider);
-        };
-        return Bootstrapper;
-    })();
-    AngularWeatherApp.Bootstrapper = Bootstrapper;
-})(AngularWeatherApp || (AngularWeatherApp = {}));
-var AngularWeatherApp;
-(function (AngularWeatherApp) {
-    var Services;
-    (function (Services) {
-        var DemoService = (function () {
-            function DemoService($injector) {
-            }
-            DemoService.$inject = ["$injector"];
-            return DemoService;
-        })();
-        Services.DemoService = DemoService;
-    })(Services = AngularWeatherApp.Services || (AngularWeatherApp.Services = {}));
-})(AngularWeatherApp || (AngularWeatherApp = {}));
-angular.module(AngularWeatherApp.AngularWeatherConstants.SERVICES, []).service(AngularWeatherApp.Services);
-var AngularWeatherApp;
-(function (AngularWeatherApp) {
-    var Controllers;
-    (function (Controllers) {
-        var WeatherAppController = (function () {
-            function WeatherAppController($scope, DemoService) {
-                $scope.weatherData = AngularWeatherApp.MockData.MOCK_WEATHER_DATA;
-            }
-            WeatherAppController.$inject = ["$scope", "DemoService"];
-            return WeatherAppController;
-        })();
-        Controllers.WeatherAppController = WeatherAppController;
-    })(Controllers = AngularWeatherApp.Controllers || (AngularWeatherApp.Controllers = {}));
-})(AngularWeatherApp || (AngularWeatherApp = {}));
-var AngularWeatherApp;
-(function (AngularWeatherApp) {
-    "use strict";
-    var App = (function () {
-        function App() {
-            var dependencies = [AngularWeatherApp.AngularWeatherConstants.SERVICES, AngularWeatherApp.AngularWeatherConstants.CONTROLLERS, "restangular", "ui.router"];
-            this.module = angular.module(AngularWeatherApp.AngularWeatherConstants.MODULE, dependencies);
-            var router = new AngularWeatherApp.Router();
-            var bootstraper = new AngularWeatherApp.Bootstrapper(this.module, router);
-            bootstraper.bootstrap();
-        }
-        return App;
-    })();
-    AngularWeatherApp.App = App;
-    ;
-    new App();
-})(AngularWeatherApp || (AngularWeatherApp = {}));
-angular.module(AngularWeatherApp.AngularWeatherConstants.CONTROLLERS, []).controller(AngularWeatherApp.Controllers);
-//# sourceMappingURL=main.js.map
+    }
+}

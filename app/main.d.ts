@@ -12,85 +12,56 @@
 declare module AngularWeatherApp {
     class AngularWeatherConstants {
         static MODULE: string;
-        static DIRECTIVES: string;
         static CONTROLLERS: string;
         static SERVICES: string;
         static FACTORIES: string;
         static INTERCEPTORS: string;
         static FILTERS: string;
-        static FACADES: string;
         static CONFIG_JSON_FILE_PATH: string;
         static CONFIG_CONSTANT: string;
         static apiKey: string;
         static serverUrl: string;
     }
 }
-declare module AngularWeatherApp.Facades {
-    import services = AngularWeatherApp.Services;
-    interface ISystemFacade {
-        crudService: services.CrudService;
-        $qService: ng.IQService;
-        restangularService: any;
-    }
-    class SystemFacade implements ISystemFacade {
-        crudService: AngularWeatherApp.Services.CrudService;
-        $qService: ng.IQService;
-        restangularService: any;
-        static $inject: string[];
-        constructor(crudService: AngularWeatherApp.Services.CrudService, $qService: ng.IQService, restangularService: any);
-    }
-}
-declare module AngularWeatherApp.Facades {
-}
-declare module AngularWeatherApp.Repositories.Constants {
-    class FilterOperator {
-        static EQUALS: string;
-    }
-}
-declare module AngularWeatherApp.Repositories.Constants {
-    enum LogicalOperator {
-        AND = 0,
-        OR = 1,
-    }
-}
-declare module AngularWeatherApp.Repositories.Constants {
-    class SortingOperator {
-        static DESCENDING_ORDER: string;
-        static ASCENDING_ORDER: string;
-    }
-}
-declare module AngularWeatherApp.Repositories {
-    class BaseReadonlyRepository {
-        systemFacade: any;
-        baseUrl: string;
-        entityName: string;
-        $injector: any;
-        resource: any;
-        restangularConfigurationService: any;
-        getById: (id: number) => ng.IPromise<any>;
-        constructor(systemFacade: any, baseUrl: string, entityName: string, $injector: any);
-    }
-}
-declare module AngularWeatherApp.Repositories {
-    class BaseCrudRepository extends BaseReadonlyRepository {
-        systemFacade: any;
-        baseUrl: string;
-        entityName: string;
-        add: (entity: any) => ng.IPromise<any>;
-        addWithUrl: (entity: any, url: String) => ng.IPromise<any>;
-        update: (entity: any, url: String) => ng.IPromise<any>;
-        remove: (url: String) => ng.IPromise<any>;
-        constructor(systemFacade: any, baseUrl: string, entityName: string, $injector: any);
-    }
-}
-declare module AngularWeatherApp.Repositories.Helpers {
-    class DataManager {
-        systemFacader: any;
-        getUnRestangularData: (data) => any;
-        resolveData: (instance, apiMethod, parameters: Array<any>) => ng.IPromise<any>;
-        resolveDataForFilter: (instance: any, apiMethod: any, parameters: Array<any>) => ng.IPromise<any>;
-        clearCache: () => ng.IPromise<any>;
-        constructor(systemFacader: any);
+declare module AngularWeatherApp {
+    class MockData {
+        static MOCK_WEATHER_DATA: {
+            "city": {
+                "id": number;
+                "name": string;
+                "coord": {
+                    "lon": number;
+                    "lat": number;
+                };
+                "country": string;
+                "population": number;
+            };
+            "cod": string;
+            "message": number;
+            "cnt": number;
+            "list": {
+                "dt": number;
+                "temp": {
+                    "day": number;
+                    "min": number;
+                    "max": number;
+                    "night": number;
+                    "eve": number;
+                    "morn": number;
+                };
+                "pressure": number;
+                "humidity": number;
+                "weather": {
+                    "id": number;
+                    "main": string;
+                    "description": string;
+                    "icon": string;
+                }[];
+                "speed": number;
+                "deg": number;
+                "clouds": number;
+            }[];
+        };
     }
 }
 declare module AngularWeatherApp {
@@ -104,30 +75,11 @@ declare module AngularWeatherApp {
         router: any;
         constructor(module: ng.IModule, router: any);
         bootstrap(): void;
-        initRestangular(RestangularProvider: any): void;
         initializeConfig(RestangularProvider: restangular.IProvider, $stateProvider: any, $urlRouterProvider: any, $httpProvider: ng.IHttpProvider): void;
     }
 }
 declare module AngularWeatherApp.Services {
-    class BaseApi extends AngularWeatherApp.Repositories.BaseCrudRepository {
-        constructor($injector: any, entityName: string);
-    }
-}
-declare module AngularWeatherApp.Services {
-    class CrudService {
-        $q: ng.IQService;
-        restangular: restangular.IService;
-        private dialogService;
-        private toastr;
-        private arrayHelper;
-        static $inject: string[];
-        constructor($q: ng.IQService, restangular: restangular.IService);
-        deleteByFunctionWithPropertyName(id: any, propertyName: string, entityList: any[], entityName: String, functionToExecute: any): ng.IPromise<any>;
-        executeDeleteByFunctionWithPropertyName: (id: number, propertyName: string, entityList: any[], functionToExecute: any) => ng.IPromise<{}>;
-    }
-}
-declare module AngularWeatherApp.Services {
-    class DemoService extends BaseApi {
+    class DemoService {
         static $inject: string[];
         constructor($injector: any);
     }
@@ -135,12 +87,7 @@ declare module AngularWeatherApp.Services {
 declare module AngularWeatherApp.Controllers {
     class WeatherAppController {
         static $inject: string[];
-        constructor($scope: any, $document: any, $injector: any, DemoService: any);
-    }
-}
-declare module AngularWeatherApp.Directives {
-    class demoDirective {
-        constructor();
+        constructor($scope: any, DemoService: any);
     }
 }
 declare module AngularWeatherApp {
