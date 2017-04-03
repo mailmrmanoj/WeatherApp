@@ -38,7 +38,7 @@ var AngularWeatherApp;
             "cnt": 7,
             "list": [
                 {
-                    "dt": 1490817600,
+                    "dt": 1491157800000,
                     "temp": {
                         "day": 15.41,
                         "min": 15.41,
@@ -62,7 +62,7 @@ var AngularWeatherApp;
                     "clouds": 64
                 },
                 {
-                    "dt": 1490904000,
+                    "dt": 1491244200000,
                     "temp": {
                         "day": 19.04,
                         "min": 10.1,
@@ -86,7 +86,7 @@ var AngularWeatherApp;
                     "clouds": 8
                 },
                 {
-                    "dt": 1490990400,
+                    "dt": 1491330600000,
                     "temp": {
                         "day": 19.24,
                         "min": 9.46,
@@ -110,7 +110,7 @@ var AngularWeatherApp;
                     "clouds": 0
                 },
                 {
-                    "dt": 1491076800,
+                    "dt": 1491417000000,
                     "temp": {
                         "day": 19.54,
                         "min": 10.99,
@@ -134,7 +134,7 @@ var AngularWeatherApp;
                     "clouds": 4
                 },
                 {
-                    "dt": 1491163200,
+                    "dt": 1491503400000,
                     "temp": {
                         "day": 19.76,
                         "min": 7.95,
@@ -158,7 +158,7 @@ var AngularWeatherApp;
                     "clouds": 55
                 },
                 {
-                    "dt": 1491249600,
+                    "dt": 1491589800000,
                     "temp": {
                         "day": 17.53,
                         "min": 7.5,
@@ -182,7 +182,7 @@ var AngularWeatherApp;
                     "clouds": 0
                 },
                 {
-                    "dt": 1491336000,
+                    "dt": 1491676200000,
                     "temp": {
                         "day": 18.24,
                         "min": 7.75,
@@ -295,4 +295,21 @@ var AngularWeatherApp;
     new App();
 })(AngularWeatherApp || (AngularWeatherApp = {}));
 angular.module(AngularWeatherApp.AngularWeatherConstants.CONTROLLERS, []).controller(AngularWeatherApp.Controllers);
+describe("Weather app controller test", function () {
+    var scope, controller, demoService, weatherAppController;
+    beforeEach(angular.mock.module("angular.weatherApp"));
+    beforeEach(angular.mock.inject(function ($rootScope, $controller, $injector, _$httpBackend_, _$controller_, _$q_) {
+        scope = $rootScope.$new();
+        demoService = $injector.get('DemoService');
+        controller = _$controller_;
+        weatherAppController = $controller('WeatherAppController', {
+            $scope: scope,
+            $rootScope: scope,
+            DemoService: demoService
+        });
+    }));
+    it("Check JSON are initialised and defined for scope.weatherData", function () {
+        expect(scope.weatherData).toEqual(AngularWeatherApp.MockData.MOCK_WEATHER_DATA);
+    });
+});
 //# sourceMappingURL=main.js.map

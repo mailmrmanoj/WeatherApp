@@ -7,39 +7,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../app/css/weather.css">
     <link rel="stylesheet" href="../bower_components/angular-material/angular-material.min.css">
+    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
 </head>
 
 <body>
     <div class="todo-wrapper" ng-controller="WeatherAppController">
-        <md-card flex-gt-sm="60" flex-gt-md="50">
-            <md-card-content>
-                <h2>{{weatherData.city.name}}</h2>
-                <md-list>
-                    <md-item ng-repeat="item in weatherData.list">
-                        <md-item-content>
-                            <div class="md-tile-content">
-                                <h3>{{item.dt|date:'dd/MM/yyyy'}}</h3>
-                                <h4>{{item.temp.day}}</h4>
-                                <p>
-                                    {{item.notes}}
-                                </p>
-                            </div>
-                        </md-item-content>
-                        <md-divider hide-gt-sm ng-if="!$last"></md-divider>
-                    </md-item>
-                </md-list>
-            </md-card-content>
-        </md-card>
-    </div>
-    <script src="../bower_components/jquery/dist/jquery.min.js"></script>
-    <script src="../bower_components/angular/angular.min.js"></script>
-    <script src="../bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
-    <script src="../bower_components/restangular/dist/restangular.min.js"></script>
-    <script src="../bower_components/angular-mocks/angular-mocks.js"></script>
-    <script src="../bower_components/underscore/underscore-min.js"></script>
-    <script src="../bower_components/angular-animate/angular-animate.min.js"></script>
-    <script src="../bower_components/angular-material/angular-material.min.js"></script>
-    <script type="text/javascript" src="main.js"></script>
+        <div class="container">
+            <div class="panel-group">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h2>{{weatherData.city.name}}
+                        </h2>
+                    </div>
+                    <div class="panel-body">
+                        <md-item ng-repeat="item in weatherData.list">
+                            <md-item-content>
+                                <div class="md-tile-content">
+                                    <h3>{{item.dt|date:'dd/MM/yyyy'}}</h3>
+                                    <h4>Temp :{{item.temp.day}}</h4>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-4">
+                                        <div>Pressure :</div>{{item.pressure}}
+                                    </div>
+                                    <div class="col-xs-4">
+                                        <div weather-panel="forecast" show-entry="forecast.list[2]">Humidity :</div>{{item.humidity}}
+                                    </div>
+                                    <div class="col-xs-4">
+                                        <div weather-panel="forecast" show-entry="forecast.list[3]">Weather:</div>{{item.weather[0].description}}
+                                    </div>
+                                </div>
+                            </md-item-content>
+                            <md-divider hide-gt-sm ng-if="!$last"></md-divider>
+                        </md-item>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+        <script src="../bower_components/angular/angular.min.js"></script>
+        <script src="../bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+        <script src="../bower_components/restangular/dist/restangular.min.js"></script>
+        <script src="../bower_components/angular-mocks/angular-mocks.js"></script>
+        <script src="../bower_components/underscore/underscore-min.js"></script>
+        <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src=" ../bower_components/angular-material/angular-material.min.js "></script>
+        <script type="text/javascript " src="main.js "></script>
 </body>
 
 </html>

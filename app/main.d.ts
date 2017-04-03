@@ -9,6 +9,8 @@
 /// <reference path="../types/moment-timezone/moment-timezone.d.ts" />
 /// <reference path="../types/leaflet/leaflet.d.ts" />
 /// <reference path="scripts/Misc.d.ts" />
+/// <reference path="main.d.ts" />
+/// <reference path="../types/angularjs/angular-mocks.d.ts" />
 declare module AngularWeatherApp {
     class AngularWeatherConstants {
         static MODULE: string;

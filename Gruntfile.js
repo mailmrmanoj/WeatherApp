@@ -3,6 +3,7 @@ module.exports = function (grunt) {
     // Configure grunt here
     grunt.initConfig({
         ts: {
+
             options: {
                 logConcurrentOutput: true,
                 sourceMap: true,

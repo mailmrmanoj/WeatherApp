@@ -21,7 +21,7 @@ module.exports = function (config) {
       'bower_components/restangular/dist/restangular.min.js',
       'bower_components/angular-mocks/angular-mocks.js',
       'bower_components/underscore/underscore-min.js',
-      'bower_components/angular-animate/angular-animate.min.js',
+      'bower_components/bootstrap/dist/js/bootstrap.js',
       'bower_components/angular-material/angular-material.min.js',
       'app/main.js',
       'app/test/specs.js'

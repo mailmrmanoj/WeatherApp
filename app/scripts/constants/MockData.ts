@@ -17,7 +17,7 @@ module AngularWeatherApp {
             "cnt": 7,
             "list": [
                 {
-                    "dt": 1490817600,
+                    "dt": 1491157800000,
                     "temp": {
                         "day": 15.41,
                         "min": 15.41,
@@ -41,7 +41,7 @@ module AngularWeatherApp {
                     "clouds": 64
                 },
                 {
-                    "dt": 1490904000,
+                    "dt": 1491244200000,
                     "temp": {
                         "day": 19.04,
                         "min": 10.1,
@@ -65,7 +65,7 @@ module AngularWeatherApp {
                     "clouds": 8
                 },
                 {
-                    "dt": 1490990400,
+                    "dt": 1491330600000,
                     "temp": {
                         "day": 19.24,
                         "min": 9.46,
@@ -89,7 +89,7 @@ module AngularWeatherApp {
                     "clouds": 0
                 },
                 {
-                    "dt": 1491076800,
+                    "dt": 1491417000000,
                     "temp": {
                         "day": 19.54,
                         "min": 10.99,
@@ -113,7 +113,7 @@ module AngularWeatherApp {
                     "clouds": 4
                 },
                 {
-                    "dt": 1491163200,
+                    "dt": 1491503400000,
                     "temp": {
                         "day": 19.76,
                         "min": 7.95,
@@ -137,7 +137,7 @@ module AngularWeatherApp {
                     "clouds": 55
                 },
                 {
-                    "dt": 1491249600,
+                    "dt": 1491589800000,
                     "temp": {
                         "day": 17.53,
                         "min": 7.5,
@@ -161,7 +161,7 @@ module AngularWeatherApp {
                     "clouds": 0
                 },
                 {
-                    "dt": 1491336000,
+                    "dt": 1491676200000,
                     "temp": {
                         "day": 18.24,
                         "min": 7.75,

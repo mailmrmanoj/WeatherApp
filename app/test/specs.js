@@ -1,4 +1,4 @@
-describe("Component: rtLevelDetails test", function () {
+describe("Weather app controller test", function () {
     var scope, controller, demoService, weatherAppController;
     beforeEach(angular.mock.module("angular.weatherApp"));
     beforeEach(angular.mock.inject(function ($rootScope, $controller, $injector, _$httpBackend_, _$controller_, _$q_) {
@@ -11,8 +11,8 @@ describe("Component: rtLevelDetails test", function () {
             DemoService: demoService
         });
     }));
-    it("Check entity names are defined and initialised", function () {
-        expect(true).toEqual(true);
+    it("Check JSON are initialised and defined for scope.weatherData", function () {
+        expect(scope.weatherData).toEqual(AngularWeatherApp.MockData.MOCK_WEATHER_DATA);
     });
 });
 //# sourceMappingURL=specs.js.map
