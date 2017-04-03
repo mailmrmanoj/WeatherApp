@@ -8,3 +8,4 @@ Steps to run :
                        > `npm install`
                        > `bower install`
                        > `grunt start`
+4. Unit testing command: `karma start`
