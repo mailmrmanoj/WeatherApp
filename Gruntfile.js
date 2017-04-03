@@ -12,6 +12,10 @@ module.exports = function (grunt) {
                 src: ["app/**/*.ts"], // The source typescript files, http://gruntjs.com/configuring-tasks#files
                 out: 'app/main.js', // If specified, generate an out.js file which is the merged js file
                 watch: 'app'
+            },
+            test: {
+                src: ["app/test/**/*.ts"],
+                out: 'app/test/specs.js',
             }
         },
         copy: {
@@ -38,6 +42,7 @@ module.exports = function (grunt) {
                 files: {}
             }
         }
+
     });
 
     // load the task
